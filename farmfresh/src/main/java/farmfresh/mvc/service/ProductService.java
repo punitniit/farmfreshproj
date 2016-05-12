@@ -32,6 +32,12 @@ public class ProductService {
 		
 	}
     
+    public int  getMaxId() {
+		
+    	return pdao.getMaxId();
+    	
+	}
+    
 	
 	public Product getProductById(int id){
 		

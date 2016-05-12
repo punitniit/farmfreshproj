@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flows:flow>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+<!-- Display the login page -->
+<view-state id="addtocart" view="/WEB-INF/flows/shoppingcart.jsp"/> 
+<view-state id="next" view="/WEB-INF/flows/billing.jsp"/> 
+<view-state id="shipto" view="/WEB-INF/flows/shipping.jsp"/>
+<view-state id="submission" view="/WEB-INF/flows/submission.jsp"/>
+</flow>
+</flows:flow>

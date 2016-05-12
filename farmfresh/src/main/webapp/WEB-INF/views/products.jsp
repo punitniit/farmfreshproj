@@ -19,7 +19,7 @@
   <form>
     <div class="form-group">
       <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <div class="input-group-addon glyphicon glyphicon-search"></div>
         <input type="text" class="form-control" placeholder="Search Product" ng-model="searchProduct">
       </div>      
     </div>
@@ -87,7 +87,7 @@
         <input type="hidden" name="product_price" value="{{fetchprod.prod_price}}"/>
         <input type="hidden" name="product_brand" value="{{fetchprod.prod_type}}"/>
         <input type="hidden" name="product_category" value="{{fetchprod.prod_category}}"/>
-        <button type="submit" class="btn btn-link "><span class="glyphicon glyphicon-music" aria-hidden="true"></span></button>
+        <button type="submit" class="btn btn-link "><span class="glyphicon glyphicon-share" aria-hidden="true"></span></button>
         </form>
         </td>
       </tr>

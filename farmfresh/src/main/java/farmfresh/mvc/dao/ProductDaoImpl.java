@@ -94,4 +94,18 @@ public class ProductDaoImpl implements ProductDao{
 		
 	}
 
+	public int getMaxId() {
+	
+		// TODO Auto-generated method stub
+		Session session=getSession();
+		Transaction tx=session.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<Product> list =session.createQuery("FROM Product WHERE pid = (SELECT MAX(pid) FROM Product)").list();
+		int y=list.get(0).getProd_id();
+		System.out.println("MAX:ID: "+y);
+		tx.commit();
+		session.close();
+		return y;
+		
+	}
 }

@@ -34,7 +34,7 @@
     <tr style="padding: 10px;">
         <td>
             <form:label class="control-label" path="prod_id">
-                
+                Product Id
             </form:label>
         </td>
         <td>
@@ -48,7 +48,7 @@
     <tr>
         <td>
             <form:label class="control-label" path="prod_name">
-                
+             Product Name   
             </form:label>
         </td>
         <td>
@@ -60,7 +60,7 @@
     <tr>
         <td>
             <form:label class="control-label" path="prod_price">
-                
+                Product Price
             </form:label>
         </td>
         <td>
@@ -72,7 +72,7 @@
     <tr>
         <td>
             <form:label class="control-label" path="prod_type" >
-                
+                Product Type
             </form:label>
         </td>
         <td>
@@ -83,16 +83,17 @@
     <tr>
         <td>
             <form:label class="control-label" path="prod_category" >
-                
+                Product Category
             </form:label>
         </td>
         <td>
             <form:input path="prod_category" ng-model="prod_category" class="form-control"/>
         </td>
         <td><form:errors path="prod_category" cssStyle="color: #c0392b;"/></td>
-    </tr>
-    	<tr><td>
-    	<form:button>Add Product</form:button></td></tr>
+        <tr>
+        <td></td>
+    	<td colspan="3"><form:button>Add Product</form:button></td>
+    	</tr>    	
     </table> 
 </form:form>
 </div>
@@ -163,11 +164,11 @@
         <td>{{ roll.prod_category }}</td>
         <td>
         <form action="editproduct" method="post">
-      	<input type="hidden" value={{roll.prod_id}} name="pid"/>
-        <input type="hidden" value={{roll.prod_name}} name="pname"/>
-        <input type="hidden" value={{roll.prod_price}} name="brand"/>
-        <input type="hidden" value={{roll.prod_type}} name="discount"/>
-        <input type="hidden" value={{roll.prod_category}} name="price"/>
+      	<input type="hidden" value={{roll.prod_id}} name="prod_id"/>
+        <input type="hidden" value={{roll.prod_name}} name="prod_name"/>
+        <input type="hidden" value={{roll.prod_price}} name="prod_price"/>
+        <input type="hidden" value={{roll.prod_type}} name="prod_type"/>
+        <input type="hidden" value={{roll.prod_category}} name="prod_category"/>
         <button type="submit" class="btn" style="margin: 0px;width:100px; background-color: #d35400; color:white; text-align: center; font-size: 015x; border-radius: 
 		0px;">Edit &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit"></span>
         </button>
@@ -175,11 +176,11 @@
        </td>
        <td>
         <form action="deleteproduct" method="post">
-      	<input type="hidden" value={{roll.prod_id}} name="pid"/>
-        <input type="hidden" value={{roll.prod_name}} name="pname"/>
-        <input type="hidden" value={{roll.prod_price}} name="brand"/>
-        <input type="hidden" value={{roll.prod_type}} name="discount"/>
-        <input type="hidden" value={{roll.prod_category}} name="price"/>
+      	<input type="hidden" value={{roll.prod_id}} name="prod_id"/>
+        <input type="hidden" value={{roll.prod_name}} name="prod_name"/>
+        <input type="hidden" value={{roll.prod_price}} name="prod_price"/>
+        <input type="hidden" value={{roll.prod_type}} name="prod_type"/>
+        <input type="hidden" value={{roll.prod_category}} name="prod_category"/>
         <button type="submit" class="btn" style="margin: 0px;width:100px; background-color: #c0392b; color:white; text-align: center; font-size: 015x; border-radius: 
         0px;">Delete &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></button>
       </form>

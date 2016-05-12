@@ -66,11 +66,11 @@ margin: 0px 30px 0px 0px;
                   <a href="#">About us</a>
               </li>
               <li>
-                  <a href="#">Register Here</a>
+                  <a href="register">Register Here</a>
               </li>
               
               <li class="marginadded">
-                  <a href="#">Login</a>
+                  <a href="loginpage">Login</a>
               </li>  
               </ul>
             </div>

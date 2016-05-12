@@ -1,7 +1,13 @@
 package farmfresh.mvc.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.google.gson.Gson;
 
@@ -107,7 +114,59 @@ public class AdminController {
 		String j=g.toJson(product);
 		model.addAttribute("alist",json);
         return "admin";
+        
     }
+    
+	@RequestMapping(value="/uploadimage",method=RequestMethod.POST)
+	public String insertProduct(@Valid @ModelAttribute("product") Product prod, HttpServletRequest request, BindingResult result,ModelMap model) throws IOException
+	{
+		boolean res=false;
+		pservice.saveProduct(prod);
+		
+		ServletContext context=request.getServletContext();
+		String rootPath=context.getRealPath("./resources/images/"+pservice.getMaxId()+".jpg");		
+		System.out.println("Path = "+rootPath);
+		MultipartFile m=prod.getImg();
+		System.out.println(m);
+		 File dir = new File(rootPath);
+		if(!m.isEmpty())
+		{
+			try
+			{
+				
+				 byte[] bytes = prod.getImg().getBytes();
+		         BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(dir));
+		         stream.write(bytes);
+		         stream.close();
+				System.out.println("Image uploaded");
+				System.out.println("Data Inserted");
+			}
+			catch(Exception ex)
+			{
+				System.out.println(ex.getMessage());
+			}
+		}
+		else
+		{
+			res=false;
+		}
+		if(res)
+		{
+			 ArrayList<Product> pr= (ArrayList<Product>) pservice.getAllProducts();
+ 			Gson gson=new Gson();
+ 			String json=gson.toJson(pr);
+ 			System.out.println("ajson: "+json);
+ 			model.addAttribute("list",json);
+			return "admin";
+			
+		}
+		else
+		{
+			return "admin";
+		}
+		
+	}
+
 }
 
 

@@ -78,7 +78,7 @@ public class UserController {
 	@RequestMapping("/productinfo")
 	public ModelAndView  productInfo(@ModelAttribute("prod") Product product) {
 		
-		return new ModelAndView("success");
+		return new ModelAndView("productinfo");
 		
 	}	
 }
