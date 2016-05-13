@@ -47,8 +47,13 @@ margin: 0px 30px 0px 0px;
             </div>
             <div class="navbar-collapse collapse navbar-x pull-right">
               <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">Partners</a></li>
+                <li><a href="${session.getContextPath()}/farmfresh/">Home</a></li>
+                <li>
+                  <a href="aboutus">About Us</a>
+              </li>
+              <li>
+                  <a href="contactus">Contact Us</a>
+              </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -62,16 +67,17 @@ margin: 0px 30px 0px 0px;
                     <li class="divider"></li>                                     
                   </ul>
                 </li>
-              <li>
-                  <a href="#">About us</a>
-              </li>
+              
               <li>
                   <a href="register">Register Here</a>
               </li>
               
               <li class="marginadded">
-                  <a href="loginpage">Login</a>
+                  <a href="login">Login</a>
               </li>  
+              <li class="marginadded">
+                  <a href="adminpage">Admin Login</a>
+              </li>
               </ul>
             </div>
           </div>

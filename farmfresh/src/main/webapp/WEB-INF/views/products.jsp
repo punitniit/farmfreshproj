@@ -81,12 +81,12 @@
         <td>{{fetchprod.prod_type}}</td>
         <td>{{fetchprod.prod_category}}</td>
         <td>
-        <form action="productinfo">
-        <input type="hidden" name="product_id" value="{{fetchprod.prod_id}}"/>
-        <input type="hidden" name="product_name" value="{{fetchprod.prod_name}}"/>
-        <input type="hidden" name="product_price" value="{{fetchprod.prod_price}}"/>
-        <input type="hidden" name="product_brand" value="{{fetchprod.prod_type}}"/>
-        <input type="hidden" name="product_category" value="{{fetchprod.prod_category}}"/>
+        <form action="productinfo" method="post">
+        <input type="hidden" name="prod_id" value="{{fetchprod.prod_id}}"/>
+        <input type="hidden" name="prod_name" value="{{fetchprod.prod_name}}"/>
+        <input type="hidden" name="prod_price" value="{{fetchprod.prod_price}}"/>
+        <input type="hidden" name="prod_type" value="{{fetchprod.prod_type}}"/>
+        <input type="hidden" name="prod_category" value="{{fetchprod.prod_category}}"/>
         <button type="submit" class="btn btn-link "><span class="glyphicon glyphicon-share" aria-hidden="true"></span></button>
         </form>
         </td>

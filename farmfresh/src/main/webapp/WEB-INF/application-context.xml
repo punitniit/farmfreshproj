@@ -17,9 +17,11 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="annotatedClasses">
 			<list>
+			<value>farmfresh.mvc.model.Cart</value>
+			<value>farmfresh.mvc.model.Item</value>
+			<value>farmfresh.mvc.model.UserDetails</value>
 			<value>farmfresh.mvc.model.Product</value>		
-			</list>			
-			
+			</list>						
 		</property>
 		<property name="hibernateProperties">
 			<props>

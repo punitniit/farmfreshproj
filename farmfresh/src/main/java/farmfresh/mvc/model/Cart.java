@@ -1,5 +1,6 @@
 package farmfresh.mvc.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +19,7 @@ import org.hibernate.annotations.IndexColumn;
 
 @Entity
 @Table(name="cartdetails")
-public class Cart {
+public class Cart implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -29,7 +30,6 @@ public class Cart {
 	@JoinColumn(name="item_id")
 	private Item item;
 	
-	
 	@OneToMany(cascade={CascadeType.ALL})
 	@JoinColumn(name="cart_id")
 	private List<Item> cart_items;
@@ -37,7 +37,7 @@ public class Cart {
 	
 	public Cart() {
 		// TODO Auto-generated constructor stub
-	}
+		}
 	
 	public int getCart_ID() {
 		return cart_ID;

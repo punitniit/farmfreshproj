@@ -5,8 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -28,10 +31,24 @@ public class UserController {
 	}
 
 		
-	@RequestMapping("/loginpage")
+	@RequestMapping("/login")
 	public ModelAndView  login() {
 		
-		return new ModelAndView("loginpage");
+		return new ModelAndView("login");
+		
+	}
+	
+	@RequestMapping("/aboutus")
+	public ModelAndView  aboutus() {
+		
+		return new ModelAndView("aboutus");
+		
+	}
+	
+	@RequestMapping("/contactus")
+	public ModelAndView  contactus() {
+		
+		return new ModelAndView("contactus");
 		
 	}
 	
@@ -75,10 +92,10 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping("/productinfo")
-	public ModelAndView  productInfo(@ModelAttribute("prod") Product product) {
-		
-		return new ModelAndView("productinfo");
+	@RequestMapping(value="/productinfo",method=RequestMethod.POST)
+	public String  productInfo(@ModelAttribute("prod") Product product,BindingResult rs,ModelMap m) {
+		m.addAttribute("product",product);
+		return "productinfo";
 		
 	}	
 }

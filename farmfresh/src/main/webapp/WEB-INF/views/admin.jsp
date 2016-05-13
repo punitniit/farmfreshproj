@@ -91,9 +91,29 @@
         </td>
         <td><form:errors path="prod_category" cssStyle="color: #c0392b;"/></td>
         <tr>
-        <td></td>
-    	<td colspan="3"><form:button>Add Product</form:button></td>
-    	</tr>    	
+        <td><tr>
+        <td>
+            <form:label class="control-label" path="img">
+                Image Upload
+            </form:label>
+        </td>
+        <td>
+            <form:input type="file" path="img"  ng-model="img" class="form-control"/>
+        </td>
+    </tr>
+    
+    <tr>
+        <td colspan="2">
+            <c:if test="${!empty product.prod_name}">
+                <button ng-click="myFunction()" type="submit" class="btn" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;"
+                    ><spring:message text="Edit Product"/></button>
+            </c:if>
+            <c:if test="${empty product.prod_name}">
+                <button type="submit" class="btn" style="margin: 0px;width:100px; background-color: #00A2E8; color:white; text-align: center; font-size: 015x; border-radius: 0px;"
+                 ><spring:message text="Add Product"/></button>
+            </c:if>
+        </td>
+    </tr>    	
     </table> 
 </form:form>
 </div>
@@ -181,6 +201,7 @@
         <input type="hidden" value={{roll.prod_price}} name="prod_price"/>
         <input type="hidden" value={{roll.prod_type}} name="prod_type"/>
         <input type="hidden" value={{roll.prod_category}} name="prod_category"/>
+        <input type="hidden" value={{roll.img}} name="img" name="img"/>
         <button type="submit" class="btn" style="margin: 0px;width:100px; background-color: #c0392b; color:white; text-align: center; font-size: 015x; border-radius: 
         0px;">Delete &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-remove"></span></button>
       </form>

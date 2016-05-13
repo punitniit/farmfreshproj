@@ -42,6 +42,17 @@ public class AdminController {
 		return "admin";
 	}
 	
+	@RequestMapping("/loginpage")
+	public String loginPage(@ModelAttribute("product") Product product,Model model) {
+		model.addAttribute("product", new Product());
+		 ArrayList<Product> p= (ArrayList<Product>) pservice.getAllProducts();
+			Gson gson=new Gson();
+			String json=gson.toJson(p);
+			System.out.println("ajson: "+json);
+			model.addAttribute("list",json);
+		return "loginpage";
+	}
+	
     @RequestMapping(value = "/saveproduct", method = RequestMethod.POST)
     public String saveProduct(@Valid @ModelAttribute("product") Product product,BindingResult result, ModelMap model) {
     	
@@ -132,8 +143,7 @@ public class AdminController {
 		if(!m.isEmpty())
 		{
 			try
-			{
-				
+			{				
 				 byte[] bytes = prod.getImg().getBytes();
 		         BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(dir));
 		         stream.write(bytes);
@@ -164,9 +174,7 @@ public class AdminController {
 		{
 			return "admin";
 		}
-		
 	}
-
 }
 
 

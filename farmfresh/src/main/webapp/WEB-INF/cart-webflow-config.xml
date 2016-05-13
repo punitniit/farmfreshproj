@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans:bean>
-<bean xmlns="http://www.springframework.org/schema/beans"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xmlns:flow="http://www.springframework.org/schema/webflow-config"
-xsi:schemaLocation="http://www.springframework.org/schema/webflow-config
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:flow="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow-config
 http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd"> 
-
-<!-- Define the flow executor responsible for executing login web flow -->
-<flow:flow-executor id="cartFlowExecutor" flow-registry="cartFlowRegistry"/>
-<!-- Define the registry that holds references to all the flow related XML configuration-->
-<flow:flow-registry id="cartFlowRegistry">
-<flow:flow-location id="cartFlow" path="/WEB-INF/flows/cart-flow.xml"/>
-</flow:flow-registry>
-</bean>
-
-</beans:bean>
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+   <flow:flow-executor id="cartFlowExecutor" flow-registry="cartFlowRegistry" />
+    
+    <!-- This creates an XmlFlowRegistryFactory bean -->
+    
+    	<flow:flow-registry id="cartFlowRegistry">
+		<flow:flow-location id="cartFlow" path="/WEB-INF/flows/cart-flow.xml" />
+	</flow:flow-registry>
+        
+</beans>
